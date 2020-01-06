@@ -24,18 +24,17 @@ class LinksController extends Controller
         return URL::to('/') . '/' . $random_token;
     }
 
-    /* Create a function that will check whether or not the received url is the same as the one in the database. */
-    /* If already created, echo already created. */
-    /* If not created, echo not created. */
 
     public function fetchLink($link) {
         $short_link = URL::to('/') . '/' . $link;
         $query = DB::table('links')->where('short_link', '=', $short_link);
 
+        /* Redirects */
         if ($query->exists()) {
+            echo $duplicate;
             return redirect($query->value('original_link'));
         } else {
-            return 'does not exist';
+            return 'This link does not exist or was not created.';
         }
     }
 }
