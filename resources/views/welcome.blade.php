@@ -19,6 +19,28 @@
                 height: 100vh;
                 margin: 0;
             }
+            .content {
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+
+            form {
+                width: 50vw;
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+            }
+
+            .input {
+                width: 70%;
+            }
+
+            .button {
+                flex: .5;
+            }
 
             .title {
                 font-size: 84px;
@@ -38,8 +60,8 @@
                     <form action="/shorten" method="post">
                         <!-- To prevents CORS attack. Generates a hidden input and generates a random id for identification. -->
                         @csrf
-                        <input name="original_link" type="url" placeholder="Type a link to shorten" />
-                        <input type="submit" value="Shorten" />
+                        <input class="input" name="original_link" type="url" placeholder="Type a link to shorten" />
+                        <input class="button" type="submit" value="Shorten" />
                     </form>
                 </div>
             </div>
